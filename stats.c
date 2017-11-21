@@ -34,37 +34,103 @@ void main() {
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
+print_array(test,SIZE);
+print_statistics(test,SIZE);
+print_array(test,SIZE);
 
   /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
 
+  /* Statistics and Printing Functions Go Here */
 }
+
+/* Add other Implementation File Code Here */
+
 void print_array(unsigned char *data,unsigned char length)
 {
-
+	
+	for(int i=0 ;i<length;i++)
+		{
+		    printf("%5d ",data[i]);
+			if(i==7||i==15||i==23||i==31||i==39)
+			    printf("\n");
+                  
+		}
+ 	printf("\n");
 }
 int find_maximum(unsigned char *data,unsigned length)
 {
 
+    int Max=0;
+    for(int i=0;i<length;i++)
+	{
+	    if(data[i]>Max)
+		Max=data[i];    
+	}
+	return Max;
 }
 int find_minimum(unsigned char *data,unsigned length)
 {
-
+   unsigned char Min=data[0];
+   for(int i=1;i<length;i++)
+	{
+	 	if(data[i]<Min)
+		    Min=data[i];
+	}
+	return (int)Min;
 }
 void sort_array(unsigned char *data,unsigned length)
 {
 
+   for(int i=0;i<length;i++)
+    {
+	for(int j=0;j<SIZE-i-1;j++)
+	{
+	   if(data[j]<data[j+1])
+		{
+			unsigned char temp=data[j];
+			data[j]=data[j+1];
+			data[j+1]=temp;			
+		}
+	}
+    }
+
+
 }
 int find_mean(unsigned char *data,unsigned length)
 {
+	
+  int sum=0;
+  int average;
+	for(int i=0;i<SIZE;i++)
+		{
+			sum+=data[i];
+		}		
+
+	average =sum/SIZE;
+	return average;
 
 }
 int find_median(unsigned char *data,unsigned length)
 {
-
+	sort_array(data,length);
+	int median ;
+	if(!length%2==0)
+		{
+			median=data[(SIZE+1)/2];
+		}
+	else
+		{
+			median=data[(2*SIZE+1)/4];
+		}
+return median;
 }
 void print_statistics(unsigned char *data,unsigned length)
 {
+   int min  =find_minimum(data,length);
+   int max  =find_maximum(data,length);
+   int mean =find_mean(data,length);
+   int median=find_median(data,length);
+printf(" minimum is :%d\n maximum is :%d\n mean is :%d\n median is :%d\n",min,max,mean,median);
 
-}
-/* Add other Implementation File Code Here */
+} 
+
