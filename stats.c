@@ -39,5 +39,32 @@ void main() {
   /* Statistics and Printing Functions Go Here */
 
 }
+void print_array(unsigned char *data,unsigned char length)
+{
 
+}
+int find_maximum(unsigned char *data,unsigned length)
+{
+
+}
+int find_minimum(unsigned char *data,unsigned length)
+{
+
+}
+void sort_array(unsigned char *data,unsigned length)
+{
+
+}
+int find_mean(unsigned char *data,unsigned length)
+{
+
+}
+int find_median(unsigned char *data,unsigned length)
+{
+
+}
+void print_statistics(unsigned char *data,unsigned length)
+{
+
+}
 /* Add other Implementation File Code Here */
